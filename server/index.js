@@ -1,7 +1,17 @@
 const express = require('express');
 const connectDb = require('./config/db');
+const bodyParser = require('body-parser');
+const cors = require('cors'); // for frontend development to call api if they in localhost
 
 const app = express();
+
+
+// cors 
+app.use(cors());
+
+// bodyParser json
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 //connect db
 connectDb();
 
