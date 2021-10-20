@@ -27,7 +27,7 @@ router.post('/register',
       return res.status(400).json({ success:false, message: errors.array() });
     }
 
-    const {email,password,fullName } = req.body
+    const {email,password,fullName,role } = req.body
     try {
       const user = await User.findOne({ email });
       if (user) {
@@ -36,7 +36,7 @@ router.post('/register',
 
       const hashPassword = await argon2.hash(password);
 
-      const newUser = new User({ email, password:hashPassword, fullName });
+      const newUser = new User({ email, password:hashPassword, fullName,role });
       await newUser.save();//save data
 
       // create token
@@ -76,7 +76,7 @@ router.post('/login',
       if(!passwordVerify) return res.status(400).json({success:false,message:'email or password wrong!'})
 
       jwt.sign(
-        {user:{id:user._id,user:user.name}},
+        {user:{id:user._id,user:user.name,role:user.role}},
         tokenSecret,
         {expiresIn:expireTime},
         (err,accesToken)=>{

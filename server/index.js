@@ -20,6 +20,9 @@ connectDb();
 // define route
 
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/manga', require('./routes/manga'));
+app.use('/api/chapter', require('./routes/chapter'));
+
 
 const PORT = process.env.PORT || 5000;
 

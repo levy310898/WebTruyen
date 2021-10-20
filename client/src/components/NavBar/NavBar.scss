@@ -1,0 +1,72 @@
+.nav{
+    height: 40px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,.2);
+
+    &__wrapper{
+        display: flex;
+        align-items: center;
+    }
+    &__logo{
+        font-size: 24px;
+        font-style: italic;
+        font-family: 'Grechen Fuemen', cursive;
+        background: -webkit-linear-gradient(rgb(85, 156, 214), rgb(23, 73, 182));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__links{
+        padding:0 1rem;
+        flex-grow: 1;
+    }
+
+    &__link{
+        display: inline-block;
+        margin-right: .5rem;
+        color:#333;
+        transition: all .3s;
+        padding:.25rem .5rem;
+        border-radius: 5px;
+        &--selected{
+            background-color:var(--color-background-nav);
+            color:var(--color-white);
+        }
+
+        &:hover{
+            background-color:var(--color-background-nav);
+            color:var(--color-white);
+        }
+    }
+
+    &__search{
+        position: relative;
+
+        &__select{
+            width: 320px;
+            height: 30px;
+            & .ant-select-selector{
+                border-radius: 15px !important;
+            }
+        }
+
+        &__button.ant-btn-link{
+            position: absolute;
+            top:50%;
+            right:-5px;
+            transform: translateY(-50%);
+        }
+        
+    }
+
+    &__user{
+        display: flex;
+        margin-left: 1rem;
+        align-items: center;
+
+        &__name{
+            margin-bottom: 0px;
+            margin-left: .5rem;
+            margin-right: .25rem;
+        }
+    }
+}

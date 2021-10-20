@@ -1,0 +1,31 @@
+.title{
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5rem;
+    position: relative;
+    margin-bottom: .5rem;
+    &--red{
+        color:var(--color-red);
+        &::after{
+            background-color: var(--color-red);
+        }
+    }
+
+    &--primary{
+        color:var(--color-primary);
+        &::after{
+            background-color: var(--color-red);
+        }
+    }
+
+    &::after{
+        content: "";
+        height: 100%;
+        width: 5px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
